@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35312.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatHub", "ChatHub\ChatHub\ChatHub.csproj", "{370CDAA8-C506-453D-8F55-7348ABBE4D6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatHub.Client", "ChatHub\ChatHub.Client\ChatHub.Client.csproj", "{31EF158A-CACE-4E42-9D13-4E6B5CCD6D3D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{370CDAA8-C506-453D-8F55-7348ABBE4D6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{370CDAA8-C506-453D-8F55-7348ABBE4D6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{370CDAA8-C506-453D-8F55-7348ABBE4D6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{370CDAA8-C506-453D-8F55-7348ABBE4D6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31EF158A-CACE-4E42-9D13-4E6B5CCD6D3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31EF158A-CACE-4E42-9D13-4E6B5CCD6D3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31EF158A-CACE-4E42-9D13-4E6B5CCD6D3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31EF158A-CACE-4E42-9D13-4E6B5CCD6D3D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8B57E5AC-B9D6-4C0F-AFCE-59FDBC83DBFD}
+	EndGlobalSection
+EndGlobal
