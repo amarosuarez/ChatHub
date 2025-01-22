@@ -1,6 +1,7 @@
 ﻿@page "/chat"
 @rendermode InteractiveWebAssembly
 @using Microsoft.AspNetCore.SignalR.Client
+@using Models
 @inject NavigationManager Navigation
 @implements IAsyncDisposable
 
@@ -9,13 +10,13 @@
 <div class="form-group">
     <label>
         User:
-        <input @bind="userInput" />
+        <input @bind="mensajeUsuario.Usuario" />
     </label>
 </div>
 <div class="form-group">
     <label>
         Message:
-        <input @bind="messageInput" size="50" />
+        <input @bind="mensajeUsuario.Mensaje" size="50" />
     </label>
 </div>
 <button @onclick="Send" disabled="@(!IsConnected)">Send</button>
@@ -32,8 +33,7 @@
 @code {
     private HubConnection? hubConnection;
     private List<string> messages = [];
-    private string? userInput;
-    private string? messageInput;
+    private MensajeUsuario mensajeUsuario = new MensajeUsuario();
 
     protected override async Task OnInitializedAsync()
     {
@@ -41,9 +41,9 @@
             .WithUrl(Navigation.ToAbsoluteUri("/chathub"))
             .Build();
 
-        hubConnection.On<string, string>("ReceiveMessage", (user, message) =>
+        hubConnection.On<MensajeUsuario>("ReceiveMessage", (mensajeUsuario) =>
         {
-            var encodedMsg = $"{user}: {message}";
+            var encodedMsg = $"{mensajeUsuario.Usuario}: {mensajeUsuario.Mensaje}";
             messages.Add(encodedMsg);
             InvokeAsync(StateHasChanged);
         });
@@ -55,7 +55,7 @@
     {
         if (hubConnection is not null)
         {
-            await hubConnection.SendAsync("SendMessage", userInput, messageInput);
+            await hubConnection.SendAsync("SendMessage", mensajeUsuario);
         }
     }
 
