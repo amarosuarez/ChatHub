@@ -7,6 +7,34 @@
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
+            
+            <Label
+                    x:Name="error"
+                    IsVisible="False"
+                HorizontalOptions="Center"
+                    TextColor="Red"></Label>
+
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Entry
+                    x:Name="groupName"
+                    FontSize="18"
+                    Placeholder="Type group name"
+                    HorizontalOptions="Center"/>
+
+                <Button
+                    x:Name="joinGroupButton"
+                    Text="Join" 
+                    Clicked="joinGroupButton_Clicked"
+                    HorizontalOptions="Fill" />
+
+                <Button
+                    x:Name="removeGroupButton"
+                    Text="Exit"
+                    Margin="10, 0, 0, 0"
+                    BackgroundColor="Red"
+                    Clicked="removeGroupButton_Clicked"
+                    HorizontalOptions="Fill" />
+            </HorizontalStackLayout>
 
             <Label
                 Text="Escribe tu nombre de usuario:"
