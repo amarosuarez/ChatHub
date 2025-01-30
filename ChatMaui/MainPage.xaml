@@ -1,8 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:ChatMaui.VM"
              x:Class="ChatMaui.MainPage">
 
+    <ContentPage.BindingContext>
+        <vm:ChatVM></vm:ChatVM>
+    </ContentPage.BindingContext>
+    
     <ScrollView>
         <VerticalStackLayout
             Padding="30,0"
@@ -19,12 +24,13 @@
                     x:Name="groupName"
                     FontSize="18"
                     Placeholder="Type group name"
+                    Text="{Binding Group}"
                     HorizontalOptions="Center"/>
 
                 <Button
                     x:Name="joinGroupButton"
                     Text="Join" 
-                    Clicked="joinGroupButton_Clicked"
+                    Command="{Binding JoinGroupCommand}"
                     HorizontalOptions="Fill" />
 
                 <Button
@@ -32,7 +38,7 @@
                     Text="Exit"
                     Margin="10, 0, 0, 0"
                     BackgroundColor="Red"
-                    Clicked="removeGroupButton_Clicked"
+                    Command="{Binding ExitGroupCommand}"
                     HorizontalOptions="Fill" />
             </HorizontalStackLayout>
 
@@ -44,6 +50,7 @@
             <Entry
                 x:Name="myUsername"
                 FontSize="18"
+                Text="{Binding Name}"
                 Placeholder="Type your username here"
                 HorizontalOptions="Center"/>
 
@@ -55,19 +62,21 @@
             <Entry
                 x:Name="myChatMessages"
                 FontSize="18"
+                Text="{Binding Message}"
                 Placeholder="Type your message here"
                 HorizontalOptions="Center"/>
 
             <Button
                 x:Name="sendButton"
                 Text="Send" 
-                Clicked="OnCounterClicked"
+                Command="{Binding SendMessageCommand}"
                 HorizontalOptions="Fill" />
 
 
             <Label
                 x:Name="chatMessages"
                 FontSize="18"
+                Text="{Binding ChatMessages}"
                 HorizontalOptions="Center"/>
         </VerticalStackLayout>
     </ScrollView>
